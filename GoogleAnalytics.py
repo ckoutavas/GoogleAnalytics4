@@ -7,7 +7,7 @@ from google.analytics.data_v1beta.types import DateRange, Dimension, Metric, Fil
 
 # noinspection PyTypeChecker
 class GA4:
-    def __init__(self, property_id: str):
+    def __init__(self, property_id: str) -> None:
         self.property_id = property_id
         self.client = BetaAnalyticsDataClient()
 
