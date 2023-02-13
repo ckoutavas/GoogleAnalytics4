@@ -5,15 +5,12 @@ First you will need to make sure that you have enabled the Google Analytics Data
 
 You can access additional information by visiting the [Data API quickstart guide](https://developers.google.com/analytics/devguides/reporting/data/v1/quickstart-client-libraries)
 
-If you do not want to use an enviorment variable, you can modify the code to use [from_service_account_file](https://github.com/googleapis/python-analytics-data/blob/8afd7c45c0703b5bed2f9e555ce9b01aefa58aa7/google/analytics/data_v1beta/services/beta_analytics_data/client.py#L149) or explicitly create the credienalts using the `credentials` param in [BetaAnalyticsDataClient](https://github.com/googleapis/python-analytics-data/blob/8afd7c45c0703b5bed2f9e555ce9b01aefa58aa7/google/analytics/data_v1beta/services/beta_analytics_data/client.py#L337)
+If you do not want to use an enviorment variable, you can use the optional param `creds_path`, which is the file path to your `credentials.json` file
 
 For example
 
 ```
-class GA4:
-    def __init__(self, property_id: str) -> None:
-        self.property_id = property_id
-        self.client = BetaAnalyticsDataClient.from_service_account_json(filename='/path/to/credentials.json')
+ga = GA4(property_id='123456789', creds_path='/path/to/credentials.json')
 ```
 
 Below are links to the GA4 Dimensions and Metrics API Names
