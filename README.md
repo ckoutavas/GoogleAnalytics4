@@ -25,7 +25,7 @@ Below are links to the GA4 Dimensions and Metrics API Names
 # Sample Code
 
 ```
-from GoogleAnalytics4 import GA4
+from GoogleAnalytics import GA4
 
 
 # list of page paths
