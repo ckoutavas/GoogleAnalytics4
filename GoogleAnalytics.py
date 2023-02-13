@@ -7,9 +7,12 @@ from google.analytics.data_v1beta.types import DateRange, Dimension, Metric, Fil
 
 # noinspection PyTypeChecker
 class GA4:
-    def __init__(self, property_id: str) -> None:
+    def __init__(self, property_id: str, creds_path: Optional[str] = None) -> None:
         self.property_id = property_id
-        self.client = BetaAnalyticsDataClient()
+        if creds_path is None:
+            self.client = BetaAnalyticsDataClient()
+        else:
+            self.client = BetaAnalyticsDataClient.from_service_account_json(creds_path)
 
     def page_path_report(self, page_paths: List[str], ga_metrics: List[str], ga_dimensions: List[str],
                          page_path_case_sensitive: bool, start_date: str, end_date: str) -> pd.DataFrame:
