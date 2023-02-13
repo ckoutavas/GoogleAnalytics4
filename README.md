@@ -23,6 +23,9 @@ You can access additional information by visiting the [Data API quickstart guide
 # Sample Code
 
 ```
+from GoogleAnalytics4 import GA4
+
+
 # list of page paths
 page_path_lst = ['/Page/1', '/Page/2', '/Page/3']
 # list of metrics you want to pull for the pages above
