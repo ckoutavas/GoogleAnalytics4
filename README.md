@@ -16,7 +16,7 @@ class GA4:
         self.client = BetaAnalyticsDataClient.from_service_account_json(filename='/path/to/credentials.json')
 ```
 
-Below are links to the GA4 Dimensions and Metrics API Names and their description
+Below are links to the GA4 Dimensions and Metrics API Names
 
 [GA4 Dimensions](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#dimensions)<br>
 [GA4 Metrics](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#metrics)
