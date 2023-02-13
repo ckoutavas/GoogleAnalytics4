@@ -11,7 +11,7 @@ For example
 
 ```
 class GA4:
-    def __init__(self, property_id: str):
+    def __init__(self, property_id: str) -> None:
         self.property_id = property_id
         self.client = BetaAnalyticsDataClient.from_service_account_json(filename='/path/to/credentials.json')
 ```
