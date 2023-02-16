@@ -1,4 +1,4 @@
-# GoogleAnalytics4
+# Google Analytics 4 Data API - Python
 A simple python class that takes a list of page paths and returns various dimensions and metrics for each url
 
 First you will need to make sure that you have enabled the Google Analytics Data API v1 in a service account and created a credentials.json. Once you have the credentials.json file, set the path to the file as the following environment variable `GOOGLE_APPLICATION_CREDENTIALS`
