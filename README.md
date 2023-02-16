@@ -44,6 +44,17 @@ df = report.run_report()
 
 # string_filter
 
+The match type of a string filter
+ - MATCH_TYPE_UNSPECIFIED = 0
+ - EXACT = 1
+ - BEGINS_WITH = 2
+ - ENDS_WITH = 3
+ - CONTAINS = 4
+ - FULL_REGEXP = 5
+ - PARTIAL_REGEXP = 6
+ 
+ The matech type can be added using `Filter.StringFilter.MatchType.EXACT` or `Filter.StringFilter.MatchType(1)`
+
 ```
 import GA4
 from google.analytics.data_v1beta.types import Filter
@@ -87,6 +98,16 @@ df = report.run_report()
 ```
 
 # numeric_filter
+
+The operation applied to a numeric filter
+ - OPERATION_UNSPECIFIED = 0
+ - EQUAL = 1
+ - LESS_THAN = 2
+ - LESS_THAN_OR_EQUAL = 3
+ - GREATER_THAN = 4
+ - GREATER_THAN_OR_EQUAL = 5
+ 
+ The matech type can be added using `Filter.NumericFilter.Operation.GREATER_THAN_OR_EQUAL` or `Filter.NumericFilter.Operation(5)`
 
 ```
 import GA4
