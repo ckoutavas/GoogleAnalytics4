@@ -53,7 +53,9 @@ The match type of a string filter:
  - FULL_REGEXP = 5
  - PARTIAL_REGEXP = 6
  
- The matech type can be added using `Filter.StringFilter.MatchType.EXACT` or `Filter.StringFilter.MatchType(1)`
+ The match type can be added using: 
+  - `Filter.StringFilter.MatchType.EXACT`
+  - `Filter.StringFilter.MatchType(1)`
 
 ```
 import GA4
@@ -107,7 +109,9 @@ The operation applied to a numeric filter:
  - GREATER_THAN = 4
  - GREATER_THAN_OR_EQUAL = 5
  
- The matech type can be added using `Filter.NumericFilter.Operation.GREATER_THAN_OR_EQUAL` or `Filter.NumericFilter.Operation(5)`
+ The operation can be added using:
+  - `Filter.NumericFilter.Operation.GREATER_THAN_OR_EQUAL`
+  - `Filter.NumericFilter.Operation(5)`
 
 ```
 import GA4
