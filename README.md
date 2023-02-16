@@ -10,7 +10,7 @@ If you do not want to use an enviorment variable, you can use the optional param
 import GA4
 
 
-report = GA4.BuildReport(property_id='12345678',
+report = GA4.BuildReport(property_id='123456789',
                          ga_dimensions=['pagePath', 'pageTitle'],
                          ga_metrics=['screenPageViews', 'activeUsers', 'averageSessionDuration'],
                          start_date='2023-02-01',
