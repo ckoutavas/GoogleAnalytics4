@@ -1,8 +1,8 @@
 # Google Analytics 4 Data API - Python
 First you will need to make sure that you have enabled the Google Analytics Data API v1 in a service account and created a credentials.json. Once you have the credentials.json file, set the path to the file as the following environment variable `GOOGLE_APPLICATION_CREDENTIALS`
 
- - [Python client install guide](https://github.com/googleapis/python-analytics-data#installation).
- - [Data API quickstart guide](https://developers.google.com/analytics/devguides/reporting/data/v1/quickstart-client-libraries).
+ - [Python client install guide](https://github.com/googleapis/python-analytics-data#installation)
+ - [Data API quickstart guide](https://developers.google.com/analytics/devguides/reporting/data/v1/quickstart-client-libraries)
 
 If you do not want to use an enviorment variable, you can use the optional param `creds_path`, which is the file path to your `credentials.json` file
 
