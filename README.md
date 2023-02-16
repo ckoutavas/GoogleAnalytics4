@@ -6,8 +6,6 @@ First you will need to make sure that you have enabled the Google Analytics Data
 
 If you do not want to use an enviorment variable, you can use the optional param `creds_path`, which is the file path to your `credentials.json` file
 
-For example
-
 ```
 import GA4
 
@@ -20,10 +18,10 @@ report = GA4.BuildReport(property_id='12345678',
                          creds_path='/path/to/credentials.json')
 ```
 
-Below are links to the GA4 Dimensions and Metrics API Names
+Below are links to the GA4 dimensions and metrics API names:
 
-[GA4 Dimensions](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#dimensions)<br>
-[GA4 Metrics](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#metrics)
+ - [GA4 Dimensions](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#dimensions)
+ - [GA4 Metrics](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#metrics)
 
 If you have used UA dimensions and metrics in the past, you can review the [Universal Analytics to Google Analytics 4 dimensions and metrics equivalence](https://developers.google.com/analytics/devguides/migration/api/reporting-ua-to-ga4-dims-mets)
 
