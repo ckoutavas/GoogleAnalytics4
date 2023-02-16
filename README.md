@@ -10,7 +10,15 @@ If you do not want to use an enviorment variable, you can use the optional param
 For example
 
 ```
-ga = GA4(property_id='123456789', creds_path='/path/to/credentials.json')
+import GA4
+
+
+report = GA4.BuildReport(property_id='12345678',
+                         ga_dimensions=['pagePath', 'pageTitle'],
+                         ga_metrics=['screenPageViews', 'activeUsers', 'averageSessionDuration'],
+                         start_date='2023-02-01',
+                         end_date='today',
+                         creds_path='/path/to/credentials.json')
 ```
 
 Below are links to the GA4 Dimensions and Metrics API Names
@@ -21,21 +29,87 @@ Below are links to the GA4 Dimensions and Metrics API Names
 If you have used UA dimensions and metrics in the past, you can review the [Universal Analytics to Google Analytics 4 dimensions and metrics equivalence](https://developers.google.com/analytics/devguides/migration/api/reporting-ua-to-ga4-dims-mets)
 
 
-# Sample Code
+# No Filter
 
 ```
-from GoogleAnalytics import GA4
+import GA4
 
 
-# list of page paths
-page_path_lst = ['/Page/1', '/Page/2', '/Page/3']
-# list of metrics you want to pull for the pages above
-mets = ['screenPageViews', 'activeUsers', 'averageSessionDuration']
-# list of dimensions you want to pull for the above pages
-dims = ['pagePath', 'pageTitle']
+report = GA4.BuildReport(property_id='123456789',
+                         ga_dimensions=['pagePath', 'pageTitle'],
+                         ga_metrics=['screenPageViews', 'activeUsers', 'averageSessionDuration'],
+                         start_date='2023-02-01',
+                         end_date='today')
 
-ga = GA4(property_id='123456789')
-df = ga.page_path_report(page_paths=page_path_lst, ga_metrics=mets,
-                         ga_dimensions=dims, page_path_case_sensitive=False,
-                         start_date='2023-02-01', end_date='today')
+df = report.run_report()
+
 ```
+
+# string_filter
+
+```
+import GA4
+from google.analytics.data_v1beta.types import Filter
+
+
+report = GA4.BuildReport(property_id='123456789',
+                         ga_dimensions=['pagePath', 'pageTitle'],
+                         ga_metrics=['screenPageViews', 'activeUsers', 'averageSessionDuration'],
+                         start_date='2023-02-01',
+                         end_date='today')
+
+report.add_filter(filter_type='string_filter',
+                  field_name='pagePath',
+                  match_type=Filter.StringFilter.MatchType.EXACT,
+                  filter_values='/Page/1',
+                  filter_case=True)
+
+df = report.run_report()
+
+```
+
+# in_list_filter
+
+```
+import GA4
+
+
+report = GA4.BuildReport(property_id='123456789',
+                         ga_dimensions=['pagePath', 'pageTitle'],
+                         ga_metrics=['screenPageViews', 'activeUsers', 'averageSessionDuration'],
+                         start_date='2023-02-01',
+                         end_date='today')
+
+report.add_filter(filter_type='in_list_filter',
+                  field_name='pagePath',
+                  filter_values=['/Page/1', '/Page/2', '/Page/3'],
+                  filter_case=False)
+
+df = report.run_report()
+
+```
+
+# numeric_filter
+
+```
+import GA4
+from google.analytics.data_v1beta.types import Filter, NumericValue
+
+
+report = GA4.BuildReport(property_id='123456789',
+                         ga_dimensions=['pagePath', 'pageTitle'],
+                         ga_metrics=['screenPageViews', 'activeUsers', 'averageSessionDuration'],
+                         start_date='2023-02-01',
+                         end_date='today')
+
+report.add_filter(filter_type='numeric_filter',
+                  field_name='day',
+                  operation=Filter.NumericFilter.Operation.GREATER_THAN_OR_EQUAL,
+                  filter_values=NumericValue({'int64_value': '10'}))
+
+df = report.run_report()
+
+```
+
+# between_filter
+There appears to be a bug with `Filter.BetweenFilter` - [GH Issue 342](https://github.com/googleapis/python-analytics-data/issues/342)
