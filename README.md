@@ -44,7 +44,7 @@ df = report.run_report()
 
 # string_filter
 
-The match type of a string filter
+The match type of a string filter:
  - MATCH_TYPE_UNSPECIFIED = 0
  - EXACT = 1
  - BEGINS_WITH = 2
@@ -99,7 +99,7 @@ df = report.run_report()
 
 # numeric_filter
 
-The operation applied to a numeric filter
+The operation applied to a numeric filter:
  - OPERATION_UNSPECIFIED = 0
  - EQUAL = 1
  - LESS_THAN = 2
