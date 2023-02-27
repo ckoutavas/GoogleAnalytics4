@@ -225,6 +225,12 @@ class BuildReport:
                                        metrics=self.metrics,
                                        date_ranges=self.date_ranges,
                                        dimension_filter=self.dimension_filter)
+        elif self.metric_filter:
+            request = RunReportRequest(property=f'properties/{self.property_id}',
+                                       dimensions=self.dimensions,
+                                       metrics=self.metrics,
+                                       date_ranges=self.date_ranges,
+                                       metric_filter=self.metric_filter)
         else:
             request = RunReportRequest(property=f'properties/{self.property_id}',
                                        dimensions=self.dimensions,
