@@ -69,9 +69,10 @@ report = GA4.BuildReport(property_id='123456789',
                          end_date='today')
 
 report.add_filter(filter_type='string_filter',
+                  filter_dimension=True,
                   field_name='pagePath',
                   match_type=Filter.StringFilter.MatchType.EXACT,
-                  filter_values='/Page/1',
+                  filter_values='/Page/4536',
                   filter_case=True)
 
 df = report.run_report()
@@ -91,8 +92,9 @@ report = GA4.BuildReport(property_id='123456789',
                          end_date='today')
 
 report.add_filter(filter_type='in_list_filter',
+                  filter_dimension=True,
                   field_name='pagePath',
-                  filter_values=['/Page/1', '/Page/2', '/Page/3'],
+                  filter_values=['/', '/Page/1', '/Page/2'],
                   filter_case=False)
 
 df = report.run_report()
@@ -125,13 +127,36 @@ report = GA4.BuildReport(property_id='123456789',
                          end_date='today')
 
 report.add_filter(filter_type='numeric_filter',
-                  field_name='day',
+                  filter_dimension=True,
+                  field_name='dayOfWeek',
                   operation=Filter.NumericFilter.Operation.GREATER_THAN_OR_EQUAL,
-                  filter_values=NumericValue({'int64_value': '10'}))
+                  filter_values=NumericValue({'int64_value': '5'}))
 
 df = report.run_report()
 
 ```
 
 # between_filter
-There appears to be a bug with `Filter.BetweenFilter` - [GH Issue 342](https://github.com/googleapis/python-analytics-data/issues/342)
+Can only be used with a [GA4 Metrics](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#metrics), not dimensions
+
+```
+import GA4
+from google.analytics.data_v1beta.types import Filter, NumericValue
+
+
+report = GA4.BuildReport(property_id='123456789',
+                         ga_dimensions=['pagePath', 'pageTitle'],
+                         ga_metrics=['screenPageViews', 'activeUsers', 'averageSessionDuration'],
+                         start_date='2023-02-01',
+                         end_date='today')
+
+report.add_filter(filter_type='between_filter',
+                  filter_dimension=False,
+                  field_name='screenPageViews',
+                  from_value=NumericValue({'int64_value': '100'}),
+                  to_value=NumericValue({'int64_value': '200'}))
+
+df = report.run_report()
+
+df = report.run_report()
+```
