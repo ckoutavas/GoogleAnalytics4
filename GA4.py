@@ -48,6 +48,7 @@ class BuildReport:
         :param creds_path: if specified use credentials.json path and not the environment variable
         """
         self.dimension_filter = None
+        self.metric_filter = None
         self.dimensions = [Dimension(name=x) for x in ga_dimensions]
         self.metrics = [Metric(name=x) for x in ga_metrics]
         self.date_ranges = [DateRange(start_date=start_date, end_date=end_date)]
@@ -58,7 +59,7 @@ class BuildReport:
         else:
             self.client = BetaAnalyticsDataClient()
 
-        def add_filter(self,
+    def add_filter(self,
                    filter_type: Literal['string_filter', 'in_list_filter', 'numeric_filter', 'between_filter'],
                    filter_dimension: bool,
                    field_name: str,
@@ -193,7 +194,6 @@ class BuildReport:
                                                                 )
                                                   )
 
-
     def run_report(self) -> pd.DataFrame:
         """
         This is used to actually RunReportRequest, which can be used with add_filter or not
@@ -210,6 +210,7 @@ class BuildReport:
 
         # add_ filter is optional
         report.add_filter(filter_type='string_filter',
+                          filter_dimension=True,
                           field_name='pagePath',
                           match_type=Filter.StringFilter.MatchType.EXACT,
                           filter_values='/Page/1',
