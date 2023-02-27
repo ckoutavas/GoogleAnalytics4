@@ -157,6 +157,4 @@ report.add_filter(filter_type='between_filter',
                   to_value=NumericValue({'int64_value': '200'}))
 
 df = report.run_report()
-
-df = report.run_report()
 ```
