@@ -1,4 +1,4 @@
-# Google Analytics 4 Data API - Python
+# Google Analytics 4 Data API Python Wrapper
 First you will need to make sure that you have enabled the Google Analytics Data API v1 in a service account and created a credentials.json. Once you have the credentials.json file, set the path as the following environment variable `GOOGLE_APPLICATION_CREDENTIALS`
 
  - [Python client install guide](https://github.com/googleapis/python-analytics-data#installation)
