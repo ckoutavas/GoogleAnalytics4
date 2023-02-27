@@ -72,7 +72,7 @@ report.add_filter(filter_type='string_filter',
                   filter_dimension=True,
                   field_name='pagePath',
                   match_type=Filter.StringFilter.MatchType.EXACT,
-                  filter_values='/Page/4536',
+                  filter_values='/Page/1',
                   filter_case=True)
 
 df = report.run_report()
