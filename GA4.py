@@ -194,7 +194,7 @@ class BuildReport:
                                                                 )
                                                   )
 
-    def run_report(self) -> pd.DataFrame:
+    def run_report(self, offset: int = 0, limit: int = 10000) -> pd.DataFrame:
         """
         This is used to actually RunReportRequest, which can be used with add_filter or not
 
@@ -218,6 +218,8 @@ class BuildReport:
 
         df = report.run_report()
 
+        :param offset: int
+        :param limit: int
         :return: pandas.DataFrame
         """
         if self.dimension_filter:
@@ -225,19 +227,24 @@ class BuildReport:
                                        dimensions=self.dimensions,
                                        metrics=self.metrics,
                                        date_ranges=self.date_ranges,
-                                       dimension_filter=self.dimension_filter)
+                                       dimension_filter=self.dimension_filter,
+                                       offset=offset,
+                                       limit=limit)
         elif self.metric_filter:
             request = RunReportRequest(property=f'properties/{self.property_id}',
                                        dimensions=self.dimensions,
                                        metrics=self.metrics,
                                        date_ranges=self.date_ranges,
-                                       metric_filter=self.metric_filter)
+                                       metric_filter=self.metric_filter,
+                                       offset=offset,
+                                       limit=limit)
         else:
             request = RunReportRequest(property=f'properties/{self.property_id}',
                                        dimensions=self.dimensions,
                                        metrics=self.metrics,
-                                       date_ranges=self.date_ranges
-                                       )
+                                       date_ranges=self.date_ranges,
+                                       offset=offset,
+                                       limit=limit)
 
         # added an extra minute to the timeout
         data = self.client.run_report(request, timeout=3600 * 2)
