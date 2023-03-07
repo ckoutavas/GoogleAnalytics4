@@ -1,7 +1,7 @@
 # Google Analytics 4 Data API Python Wrapper
 ## Cloning the Repo and Setup
 1. Create a virtual environment: `conda create -n py_ga4 python=3.10`
-2. Change the dirctory to your site-packages: `cd /Users/ckoutavas/opt/anaconda3/envs/py_ga4/lib/python3.10/site-packages`
+2. Change the dirctory to your site-packages: `cd ~/opt/anaconda3/envs/py_ga4/lib/python3.10/site-packages`
 3. Clone the repo: `git clone https://github.com/ckoutavas/GoogleAnalytics4`
 4. Change the directory to GoogleAnalytics4: `cd GoogleAnalytics4`
 5. Activate your new enviorment: `conda activate py_ga4`
