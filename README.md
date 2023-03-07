@@ -12,7 +12,7 @@ After you clone the repo, make sure that you have enabled the Google Analytics D
  - [Python client install guide](https://github.com/googleapis/python-analytics-data#installation)
  - [Data API quickstart guide](https://developers.google.com/analytics/devguides/reporting/data/v1/quickstart-client-libraries)
 
-If you do not want to use an enviorment variable, you can use the optional param `creds_path`, which is the file path to your `credentials.json` file
+If you do not want to use an enviorment variable, you can use the optional param `creds_path`, which is the path to your `credentials.json` file
 
 ```
 from GoogleAnalytics4 import GA4
