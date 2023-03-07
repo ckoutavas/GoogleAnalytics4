@@ -4,7 +4,8 @@
 2. Change the dirctory to your site-packages: `cd /Users/ckoutavas/opt/anaconda3/envs/py_ga4/lib/python3.10/site-packages`
 3. Clone the repo: `git clone https://github.com/ckoutavas/GoogleAnalytics4`
 4. Change the directory to GoogleAnalytics4: `cd GoogleAnalytics4`
-5. Install requirements.txt: `pip install -r requirements.txt`
+5. Activate your new enviorment: `conda activate py_ga4`
+6. Install requirements.txt: `pip install -r requirements.txt`
 
 After you clone the repo, make sure that you have enabled the Google Analytics Data API v1 in a service account and created a credentials.json. Once you have the credentials.json file, set the path as the following environment variable `GOOGLE_APPLICATION_CREDENTIALS`
 
