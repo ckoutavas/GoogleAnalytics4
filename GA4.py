@@ -32,7 +32,7 @@ class BuildReport:
 
         SAMPLE CODE
 
-        import GA4
+        from GoogleAnalytics4 import GA4
 
         report = GA4.BuildReport(property_id='123456789',
                          ga_dimensions=['pagePath', 'pageTitle'],
@@ -92,7 +92,7 @@ class BuildReport:
 
         SAMPLE CODE
 
-        import GA4
+        from GoogleAnalytics4 import GA4
 
         report = GA4.BuildReport(property_id='123456789',
                          ga_dimensions=['pagePath', 'pageTitle'],
@@ -200,7 +200,7 @@ class BuildReport:
 
         SAMPLE CODE
 
-        import GA4
+        from GoogleAnalytics4 import GA4
 
         report = GA4.BuildReport(property_id='123456789',
                          ga_dimensions=['pagePath', 'pageTitle'],
